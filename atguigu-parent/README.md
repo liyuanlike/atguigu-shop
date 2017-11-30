@@ -1,0 +1,1 @@
+atguigu-parent 是所有模块的父 pom 工程, 起到对 jar 包和插件版本的统一管理.

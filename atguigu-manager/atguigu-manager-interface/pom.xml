@@ -19,10 +19,6 @@
             <artifactId>atguigu-manager-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

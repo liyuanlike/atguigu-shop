@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--扫描Service-->
+    <context:component-scan base-package="com.atguigu.manager.service"/>
+
+    <!--配置dubbo应用服务-->
+    <dubbo:application name="atguigu-manager"/>
+   <!-- dubbo注册中心服务
+    protocol:使用保存信息的协议
+    address:zookeeper的IP和端口号, 如果是多个集群, 用,(逗号)分割开来-->
+    <dubbo:registry protocol="zookeeper" address="192.168.108.132:2181"></dubbo:registry>
+    <!--在dubbo协议中暴露 20880
+    name:必须指定dubbo
+    port:当前应用暴露的端口号-->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--把代理对象注册到zookeeper中,默认3秒-->
+    <dubbo:service interface="com.atguigu.manager.service.DubboDemoService" ref="dubboDemoServiceImpl"/>
+</beans>

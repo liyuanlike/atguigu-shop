@@ -1,8 +1,6 @@
 package com.atguigu.manager.service;
 
-import java.util.Date;
-
-public interface DubboDemoService {
+public interface DemoService {
 
     String hello(String name);
 

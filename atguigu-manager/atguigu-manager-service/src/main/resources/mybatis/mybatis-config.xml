@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis全局配置文件configuration: 配置数据源,配置连接池,映射文件 -->
+<configuration>
+
+	<!-- 通用mapper -->
+	<plugins>
+		<plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
+			<property name="IDENTITY" value="MYSQL" />
+			<property name="mappers" value="com.github.abel533.mapper.Mapper" />
+		</plugin>
+		<!--<plugin interceptor="com.github.pagehelper.PageHelper"></plugin>-->
+	</plugins>
+
+</configuration>

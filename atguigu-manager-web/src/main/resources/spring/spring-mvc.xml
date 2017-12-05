@@ -31,16 +31,23 @@
 
     <!--文件上传客户端-->
     <bean id="storageClient" class="com.atguigu.common.util.StorageClientFactoryBean">
-        <property name="tracker" value="120.78.221.13:22122"/>
+        <!--<property name="tracker" value="120.78.221.13:22122"/>-->
+        <property name="tracker" value="192.168.108.75:22122"/>
     </bean>
+
+
+
 
     <!-- 配置dubbo应用服务 -->
     <dubbo:application name="atguigu-manager"/>
 
+    <dubbo:consumer timeout="3000"/>
+
     <!-- dubbo注册中心服务
 		protocol:使用保存信息的协议
 		address:zookeeper的ip和端口号  如果是多个集群,192.168.220.118:2181,192.168.220.119:2181,192.168.220.120:2181-->
-    <dubbo:registry protocol="zookeeper" address="120.78.221.13:2181"/>
+    <!--<dubbo:registry protocol="zookeeper" address="120.78.221.13:2181"/>-->
+    <dubbo:registry protocol="zookeeper" address="192.168.108.75:2181"/>
 
     <!-- 在dubbo协议中暴露 20880
 		name:必须指定dubbo
@@ -54,4 +61,5 @@
     <dubbo:reference interface="com.atguigu.manager.service.CategoryService" id="categoryService"/>
     <dubbo:reference interface="com.atguigu.manager.service.ProductService" id="productService"/>
     <dubbo:reference interface="com.atguigu.manager.service.UserService" id="uerService"/>
+    <dubbo:reference interface="com.atguigu.manager.service.RedisUtils" id="redisUtils"/>
 </beans>

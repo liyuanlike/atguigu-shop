@@ -15,10 +15,13 @@
     <!--配置dubbo应用服务-->
     <dubbo:application name="atguigu-manager"/>
 
+
+    <dubbo:provider timeout="3000"/>
     <!-- dubbo注册中心服务
     protocol:使用保存信息的协议
     address:zookeeper的IP和端口号, 如果是多个集群, 用,(逗号)分割开来-->
-    <dubbo:registry protocol="zookeeper" address="120.78.221.13:2181"></dubbo:registry>
+    <!--<dubbo:registry protocol="zookeeper" address="120.78.221.13:2181"></dubbo:registry>-->
+    <dubbo:registry protocol="zookeeper" address="192.168.108.75:2181"/>
 
     <!--在dubbo协议中暴露 20880
     name:必须指定dubbo
@@ -31,4 +34,5 @@
     <dubbo:service interface="com.atguigu.manager.service.CategoryService" ref="categoryServiceImpl"/>
     <dubbo:service interface="com.atguigu.manager.service.ProductService" ref="productServiceImpl"/>
     <dubbo:service interface="com.atguigu.manager.service.UserService" ref="userServiceImpl"/>
+    <dubbo:service interface="com.atguigu.manager.service.RedisUtils" ref="redisUtilsImpl"/>
 </beans>

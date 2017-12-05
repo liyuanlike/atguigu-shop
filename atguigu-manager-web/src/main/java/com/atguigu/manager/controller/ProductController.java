@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/restful/page")
+@RequestMapping("/page")
 @Controller
 public class ProductController {
 

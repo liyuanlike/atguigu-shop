@@ -59,6 +59,11 @@
             <!-- Spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
@@ -285,11 +290,19 @@
                 <version>${json.version}</version>
             </dependency>
 
-            <dependency>
+           <!-- <dependency>
                 <groupId>com.alibaba.fastdfs</groupId>
                 <artifactId>fastdfs_client</artifactId>
                 <version>${fastdfs_client.version}</version>
+            </dependency>-->
+
+            <!--FastDFS客户端-->
+            <dependency>
+                <groupId>com.luhuiguo</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>0.4.0</version>
             </dependency>
+
 
             <!-- httpclient -->
             <dependency>
